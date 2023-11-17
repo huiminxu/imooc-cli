@@ -14,6 +14,7 @@ const useOriginNpm = false;
 class Package {
   constructor(options) {
     log.verbose('options', options);
+    // package 的路径
     this.targetPath = options.targetPath;
     this.storePath = options.storePath;
     this.packageName = options.name;
@@ -65,7 +66,7 @@ class Package {
     }
     return fse.readJsonSync(path.resolve(this.storePath, 'package.json'));
   }
-
+// 获取入口文件的路径
   getRootFilePath(isOriginal = false) {
     const pkg = this.getPackage(isOriginal);
     if (pkg) {
